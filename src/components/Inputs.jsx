@@ -50,17 +50,19 @@ function Inputs() {
     }
 
   return (
-    <>
-        <div>
-            <h1 className='flex justify-center text-4xl font-bold text-white py-5'>CONVERT3R</h1>
+    <div className='flex justify-center'>
+        <div className='flex flex-col w-full lg:w-1/2'>
+            <div>
+                <h1 className='flex justify-center font-mono text-5xl font-bold text-white py-5'>CONVERT3R</h1>
+            </div>
+            
+            <div className='flex flex-col gap-4 text-myPurple p-4 bg-slate-50 m-3 rounded-2xl shadow-xl'>
+                <Input label={"ASCII:"} value={asciiValue}  changeValue={changeAsciiToOthers}/>
+                <Input label={"DEZIMAL:"} value={decValue}  changeValue={changeDecToOthers}/>
+                <Input label={"HEX:"} value={hexValue}  changeValue={changeHexToOthers}/>
+            </div>
         </div>
-        
-        <div className='flex flex-col gap-4 text-white p-4 bg-slate-800 m-3 rounded-2xl shadow-md'>
-            <Input label={"ASCII"} value={asciiValue}  changeValue={changeAsciiToOthers}/>
-            <Input label={"DEZIMAL"} value={decValue}  changeValue={changeDecToOthers}/>
-            <Input label={"HEX"} value={hexValue}  changeValue={changeHexToOthers}/>
-        </div>
-    </>
+    </div>
 
   )
 }

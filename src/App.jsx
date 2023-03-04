@@ -5,7 +5,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
+    <div className="App bg-gradient-to-br from-myPurple to-myBlue h-screen">
       <Inputs/>
     </div>
   )

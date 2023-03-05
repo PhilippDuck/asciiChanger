@@ -18,7 +18,6 @@ function Inputs() {
             setDecValue(dec);
             setHexValue(event.target.value);
             setAsciiValue(ascii);
-
         } catch (error) {
             console.log(error);
         }
@@ -39,10 +38,13 @@ function Inputs() {
 
     const changeAsciiToOthers = (event) => {
         try{
-            let hex = event.target.value.charCodeAt(0);
-            setDecValue(parseInt(hex, 16));
+            let ascii = event.target.value;
+            let dec = ascii.charCodeAt(0);
+            let hex = dec.toString(16);
+            setDecValue(dec);
             setHexValue(hex);
-            setAsciiValue(event.target.value);
+            
+            setAsciiValue(ascii.slice(-1));
         } catch(error) {
             console.log(error);
         }
@@ -52,11 +54,9 @@ function Inputs() {
   return (
     <div className='flex justify-center'>
         <div className='flex flex-col w-full lg:w-1/2'>
-            <div>
-                <h1 className='flex justify-center font-mono text-5xl font-bold text-white py-5'>CONVERT3R</h1>
-            </div>
             
-            <div className='flex flex-col gap-4 text-myPurple p-4 bg-slate-50 m-3 rounded-2xl shadow-xl'>
+            
+            <div className='flex flex-col gap-4 text-myPurple p-4 bg-slate-50 m-3 my-5 rounded-2xl shadow-xl'>
                 <Input label={"ASCII:"} value={asciiValue}  changeValue={changeAsciiToOthers}/>
                 <Input label={"DEZIMAL:"} value={decValue}  changeValue={changeDecToOthers}/>
                 <Input label={"HEX:"} value={hexValue}  changeValue={changeHexToOthers}/>
